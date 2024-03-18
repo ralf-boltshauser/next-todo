@@ -9,8 +9,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { useRef } from "react";
 import { toast } from "sonner";
+import { addTodo } from "../app/actions";
 import SubmitButton from "./SubmitButton";
-import { addTodo } from "./actions";
 
 export default function TodoForm() {
   const formRef = useRef<HTMLFormElement>(null) as any;

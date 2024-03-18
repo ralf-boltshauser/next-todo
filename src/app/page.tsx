@@ -1,10 +1,10 @@
+import UseOpmtiisticComp from "@/components/Useoptimistic";
 import { Skeleton } from "@/components/ui/skeleton";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/client";
 import { Suspense } from "react";
-import TodoComponent from "./TodoComponent";
-import TodoForm from "./TodoFormComponent";
+import TodoComponent from "../components/TodoComponent";
+import TodoForm from "../components/TodoFormComponent";
 
-const prisma = new PrismaClient();
 export default async function Home() {
   return (
     <div>
@@ -21,6 +21,7 @@ export default async function Home() {
         <TodoList />
       </Suspense>
       <TodoForm />
+      <UseOpmtiisticComp />
     </div>
   );
 }

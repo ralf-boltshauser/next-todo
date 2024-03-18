@@ -1,9 +1,6 @@
 "use server";
-
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/client";
 import { revalidatePath } from "next/cache";
-
-const prisma = new PrismaClient();
 
 export async function addTodo(formData: FormData) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -21,6 +18,7 @@ export async function deleteTodoById(id: number) {
 }
 
 export async function toggleTodoDone(id: number) {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const todo = await prisma.todo.findUnique({ where: { id } });
   if (!todo) return;
 
